@@ -1,11 +1,17 @@
 import streamlit as st
 import json
 
-# Carregar o JSON
-with open("json-test-ontologies/OntoStone.json", "r") as file:
-    data = json.load(file)
+# Função para carregar o JSON com cache
+@st.cache_data
+def load_data():
+    with open("json-test-ontologies/OntoStone.json", "r") as file:
+        return json.load(file)
 
-# Função para listar entidades com categorias
+# Carregar os dados do JSON (usando cache)
+data = load_data()
+
+# Função para listar entidades com categorias (usando cache)
+@st.cache_data
 def get_entidades():
     entidades = [item for item in data["model"]["contents"] if item["type"] == "Class"]
     categorias = {}
@@ -16,7 +22,8 @@ def get_entidades():
         categorias[stereotype].append(entidade)
     return categorias
 
-# Função para obter detalhes de uma entidade
+# Função para obter detalhes de uma entidade (usando cache)
+@st.cache_data
 def get_entidade_details(entidade_id):
     entidade = next((item for item in data["model"]["contents"] if item["id"] == entidade_id), None)
     if not entidade:
@@ -72,6 +79,7 @@ if pagina == "Entidades":
                 if st.button(entidade["name"], key=entidade["id"]):
                     update_query_params(pagina="Detalhes", entidade_id=entidade["id"])
                     st.rerun()
+
 # Página de detalhes da entidade
 elif pagina == "Detalhes" and entidade_id:
     details = get_entidade_details(entidade_id)
