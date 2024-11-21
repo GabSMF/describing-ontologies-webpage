@@ -1,0 +1,330 @@
+@prefix : <http://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Maquina rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Maquina"@en.
+:Cartao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Cartao"@en.
+:CartaoDeCredito rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cartao de Credito"@en.
+:CartaoDeDebito rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Cartao de Debito"@en.
+:Cliente rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Cliente"@en.
+:Bobina rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bobina"@en.
+:Carteira rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Carteira"@en.
+:ChavePix rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Chave Pix"@en.
+:Pix rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Pix"@en;
+    rdfs:comment "Testando descri��o"@en.
+:Chip rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Chip"@en.
+:TrocaEconomica rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Troca Economica"@en.
+:ContribuicaoDaContrapartida rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Contribuicao da Contrapartida"@en.
+:ContribuicaoOferecida rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Contribuicao Oferecida"@en.
+:ContribuicaoMonetaria rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Contribuicao Monetaria"@en.
+:VendaCompra rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Venda/Compra"@en.
+:ContribuicaoDeBensOuServicos rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Contribuicao de Bens ou Servicos"@en.
+:EventoDePagamento rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Evento de Pagamento"@en.
+:MetodoDePagamento rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Metodo de Pagamento"@en.
+:QuantidadeMonetaria rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Quantidade Monetaria"@en.
+:Participante rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Participante"@en.
+:Usuario rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Usuario"@en.
+:ContaBancaria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Conta Bancaria"@en.
+:IdentificadorBancario rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Identificador Bancario"@en.
+:ChaveCPF rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chave CPF"@en.
+:ChaveCNPJ rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chave CNPJ"@en.
+:ChaveEmail rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chave Email"@en.
+:ChaveNmeroDeTelefone rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chave N�mero de Telefone"@en.
+:ChaveAleatoria rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Chave Aleatoria"@en.
+:Saldo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "Saldo"@en.
+:TransacaoMonetaria rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transacao monetaria"@en.
+:TransferenciaMonetaria rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transferencia Monetaria"@en.
+:TransacaoViaPix rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transacao via Pix"@en.
+:TransacaoViaCartao rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transacao via Cartao"@en.
+:MetodosDeTransferencia rdf:type owl:NamedIndividual;
+    rdfs:label "Metodos de Transferencia"@en.
+:MetodosDeTransacao rdf:type owl:NamedIndividual;
+    rdfs:label "Metodos de Transacao"@en.
+:MetodoDePagamentoPix rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Metodo de Pagamento Pix"@en.
+:MetodoDeTransacaoViaCartao rdf:type owl:NamedIndividual;
+    rdfs:label "Metodo de Transacao via Cartao"@en.
+:MetodoDeTransferenciaViaPix rdf:type owl:NamedIndividual;
+    rdfs:label "Metodo de Transferencia via Pix"@en.
+:MetodoDeTransacaoViaPix rdf:type owl:NamedIndividual;
+    rdfs:label "Metodo de Transacao via Pix"@en.
+:TransferenciaViaPix rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transferencia via Pix"@en.
+:TransferenciaViaTED rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Transferencia via TED"@en.
+:MetodoDeTransferenciaViaTED rdf:type owl:NamedIndividual;
+    rdfs:label "Metodo de Transferencia via TED"@en.
+:GeracaoDeQRCodeEstatico rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Geracao de QR Code Estatico"@en.
+:QRCodeEstticoPix rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "QR Code Est�tico Pix"@en.
+:QRCodeDinamicoPix rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "QR Code Dinamico Pix"@en.
+:QRCodePix rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "QR Code Pix"@en.
+:CartaoDeCredito rdfs:subClassOf :Cartao.
+:CartaoDeDebito rdfs:subClassOf :Cartao.
+:ContribuicaoMonetaria rdfs:subClassOf :ContribuicaoOferecida.
+:VendaCompra rdfs:subClassOf :TrocaEconomica.
+:ContribuicaoDeBensOuServicos rdfs:subClassOf :ContribuicaoDaContrapartida.
+:EventoDePagamento rdfs:subClassOf :ContribuicaoMonetaria.
+:Usuario rdfs:subClassOf :Participante.
+:Cliente rdfs:subClassOf :Participante.
+:ChaveAleatoria rdfs:subClassOf :ChavePix.
+:ChaveCPF rdfs:subClassOf :ChavePix.
+:ChaveCNPJ rdfs:subClassOf :ChavePix.
+:ChaveEmail rdfs:subClassOf :ChavePix.
+:ChaveNmeroDeTelefone rdfs:subClassOf :ChavePix.
+:TransacaoMonetaria rdfs:subClassOf :EventoDePagamento.
+:TransacaoViaPix rdfs:subClassOf :TransacaoMonetaria.
+:TransacaoViaCartao rdfs:subClassOf :TransacaoMonetaria.
+:TransferenciaMonetaria rdfs:subClassOf :EventoDePagamento.
+:MetodosDeTransferencia rdfs:subClassOf :MetodoDePagamento.
+:MetodosDeTransacao rdfs:subClassOf :MetodoDePagamento.
+:MetodoDeTransferenciaViaPix rdfs:subClassOf :MetodoDePagamentoPix.
+:MetodoDeTransacaoViaPix rdfs:subClassOf :MetodoDePagamentoPix, :MetodosDeTransacao.
+:MetodoDeTransacaoViaCartao rdfs:subClassOf :MetodosDeTransacao.
+:Pix rdfs:subClassOf :EventoDePagamento.
+:TransacaoViaPix rdfs:subClassOf :Pix.
+:TransferenciaViaPix rdfs:subClassOf :Pix, :TransferenciaMonetaria.
+:TransferenciaViaTED rdfs:subClassOf :TransferenciaMonetaria.
+:MetodoDeTransferenciaViaTED rdfs:subClassOf :MetodosDeTransferencia.
+:MetodoDeTransferenciaViaPix rdfs:subClassOf :MetodosDeTransferencia.
+:QRCodeEstticoPix rdfs:subClassOf :QRCodePix.
+:QRCodeDinamicoPix rdfs:subClassOf :QRCodePix.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:CartaoDeDebito :CartaoDeCredito).
+:Cartao owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:CartaoDeDebito :CartaoDeCredito)
+].
+:Participante owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Cliente :Usuario)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:ChaveEmail :ChaveCPF :ChaveCNPJ :ChaveAleatoria :ChaveNmeroDeTelefone).
+:ChavePix owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:ChaveEmail :ChaveCPF :ChaveCNPJ :ChaveAleatoria :ChaveNmeroDeTelefone)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:TransacaoViaPix :TransacaoViaCartao).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:TransferenciaMonetaria :TransacaoMonetaria :Pix).
+:EventoDePagamento owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:TransferenciaMonetaria :TransacaoMonetaria :Pix)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:MetodoDeTransferenciaViaPix :MetodoDeTransacaoViaPix).
+:MetodoDePagamentoPix owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:MetodoDeTransferenciaViaPix :MetodoDeTransacaoViaPix)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:TransacaoViaPix :TransferenciaViaPix).
+:Pix owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:TransacaoViaPix :TransferenciaViaPix)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:TransferenciaViaTED :TransferenciaViaPix).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:MetodoDeTransferenciaViaTED :MetodoDeTransferenciaViaPix).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:QRCodeDinamicoPix :QRCodeEstticoPix).
+:QRCodePix owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:QRCodeDinamicoPix :QRCodeEstticoPix)
+].
+:EventoDePagamento gufo:categorizes :MetodoDePagamento.
+:saldoHasCarteira rdf:type owl:ObjectProperty;
+    rdfs:domain :Saldo;
+    rdfs:range :Carteira.
+:TransacaoMonetaria gufo:categorizes :MetodosDeTransacao.
+:Pix gufo:categorizes :MetodoDePagamentoPix.
+:TransferenciaMonetaria gufo:categorizes :MetodosDeTransferencia.
+:TransacaoViaCartao gufo:categorizes :MetodoDeTransacaoViaCartao.
+:TransacaoViaPix gufo:categorizes :MetodoDeTransacaoViaPix.
+:TransferenciaViaPix gufo:categorizes :MetodoDeTransferenciaViaPix.
+:TransferenciaViaTED gufo:categorizes :MetodoDeTransferenciaViaTED.
+:usuarioHasQrCodePix rdf:type owl:ObjectProperty;
+    rdfs:domain :Usuario;
+    rdfs:range :QRCodePix;
+    rdf:type gufo:MaterialRelationshipType.
+:clienteHasCartao rdf:type owl:ObjectProperty;
+    rdfs:domain :Cliente;
+    rdfs:range :Cartao;
+    rdf:type gufo:MaterialRelationshipType.
+:maquinaHasUsuario rdf:type owl:ObjectProperty;
+    rdfs:domain :Maquina;
+    rdfs:range :Usuario;
+    rdf:type gufo:MaterialRelationshipType.
+:EventoDePagamento rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :QuantidadeMonetaria
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :Usuario
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :Cliente
+].
+:Participante rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:historicallyDependsOn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ContaBancaria
+].
+:ContaBancaria rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :IdentificadorBancario
+].
+:IdentificadorBancario rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ContaBancaria
+].
+:ContaBancaria rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ChavePix
+].
+:ChavePix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ContaBancaria
+].
+:TransacaoViaCartao rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :Cartao
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :Maquina
+].
+:GeracaoDeQRCodeEstatico rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :Maquina
+].
+:QRCodeEstticoPix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:wasCreatedIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :GeracaoDeQRCodeEstatico
+].
+:GeracaoDeQRCodeEstatico rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:wasCreatedIn;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :QRCodeEstticoPix
+].
+:TransacaoViaPix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :QRCodeEstticoPix
+].
+:TransferenciaViaPix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom :QRCodeDinamicoPix
+].
+:QRCodePix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ChavePix
+].
+:ChavePix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :QRCodePix
+].
+:Usuario rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :usuarioHasQrCodePix;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :QRCodePix
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ChavePix
+].
+:ChavePix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Usuario
+].
+:Pix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ChavePix
+].
+:ChavePix rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Pix
+].

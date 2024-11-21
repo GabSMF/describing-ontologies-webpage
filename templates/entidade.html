@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Entidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .class-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .class-item {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #00a550;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .class-item:hover {
+            background: #01803e;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #141915;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a.back-link:hover {
+            background-color: #00a550;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Entity Details</h1>
+        <p><strong>Name:</strong> {{ entidade.name }}</p>
+        <p><strong>Description:</strong> {{ entidade.description or "No description available" }}</p>
+        <p><strong>Stereotype:</strong> &lt;&lt;{{ entidade.stereotype }}>></p>
+
+        <h2>Leaf Entities</h2>
+        {% if filhos %}
+            <div class="class-container">
+                {% for filho in filhos %}
+                    <a href="/entidade/{{ filho.id }}" class="class-item">{{ filho.name }}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No leaf entities.</p>
+        {% endif %}
+
+        <h2>Root Entities</h2>
+        {% if pais %}
+            <div class="class-container">
+                {% for pai in pais %}
+                    <a href="/entidade/{{ pai.id }}" class="class-item">{{ pai.name }}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No root entities.</p>
+        {% endif %}
+
+        <h2>Relationships</h2>
+        {% if relations %}
+            <ul>
+                {% for relation in relations %}
+                <li>
+                    {{ relation.relation_name }} (&lt;&lt;{{ relation.relation_stereotype }}>>) 
+                    <a href="/entidade/{{ relation.connected_entity.id }}">
+                        {{ relation.connected_entity.name }}
+                    </a> 
+                    (&lt;&lt;{{ relation.connected_entity_stereotype }}>>)
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No relationships.</p>
+        {% endif %}
+
+        <a href="/entidades" class="back-link">return</a>
+    </div>
+</body>
+</html>
